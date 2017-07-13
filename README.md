@@ -50,7 +50,7 @@ Three Main Steps
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-*The size of training set is, 34799.
+* The size of training set is, 34799.
 * The size of the validation set is, 12630.
 * The size of test set is 32x32x3.
 * The shape of a traffic sign image is square 32x32.
