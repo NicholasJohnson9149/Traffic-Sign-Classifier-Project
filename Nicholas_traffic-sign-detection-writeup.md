@@ -11,6 +11,7 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
+
 A perceptron is a state machine that basically deicides if something is on or off, the idea being that most problems in the world require more than on input of information to make an informed decision and based on the amount of information collected a decision might be more pronounced. This section of the class really faced on the behind the senses ideas that make up machine learning, and gave deeper insight into how weights and biases impact a networks performance. This was helpful in modifying the LeNet network to recognize german traffic signs and dial in the correct variables of the network to grain the desired accuracy.  
 
 Artificial intelligence has become the hottest topic in tech the last few years with breakthroughs in hardware lowing computation cost of GPUs and software libraries that increase time to market for complex application. Amazon, Google and Apple have all heavily invested into handwriting and speech neural networks for added functionality in their products. Google, Tesla, and a wide range of startups are leveraging machine learning to train cars to drive without human interaction, and hence the importance of this course,  detecting signs in real time with higher accuracy than a human. All these technologies are the accumulation of decades of research into artificial inelegance.
