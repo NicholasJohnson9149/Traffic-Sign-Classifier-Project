@@ -4,16 +4,17 @@
 **Build a Traffic Sign Recognition Pipeline using TensorFlow**
 
 
-[image1]: ./ouput-pictures/image1.png "histogram of label frequency before before data augmentation) "
-[image2]: ./ouput-pictures/image2.png "Logo Title Text 2"
-[image3]: ./ouput-pictures/image3.png "Logo Title Text 2"
-[image4]: ./ouput-pictures/image4.png "Logo Title Text 2"
-[image5]: ./ouput-pictures/image5.png "Logo Title Text 2"
-[image6]: ./ouput-pictures/image6.png "Logo Title Text 2"
-[image7]: ./ouput-pictures/image7.png "Logo Title Text 2"
-[image8]: ./ouput-pictures/image8.png "Logo Title Text 2"
-[image9]: ./ouput-pictures/image9.png "Logo Title Text 2"
-[image10]: ./ouput-pictures/image10.png "Logo Title Text 2"
+[image1]: ./ouput-pictures/image1.png "histogram of label frequency before before data augmentation"
+[image2]: ./ouput-pictures/image2.png "array of prossesed data images"
+[image3]: ./ouput-pictures/image3.png "array of secound set of daata uding processing"
+[image4]: ./ouput-pictures/image4.png "modified LeNet Architeture used to crate the network"
+[image5]: ./ouput-pictures/image5.png "processed images - preditions of signs "
+[image6]: ./ouput-pictures/image6.png "more german traffic signs for processesing"
+[image7]: ./ouput-pictures/image7.png "graphs of model accuracy using text and training data over # epochs"
+[image8]: ./ouput-pictures/image8.png "normalized data for training "
+[image9]: ./ouput-pictures/image9.png "predition precentages of test images "
+[image10]: ./ouput-pictures/image10.png "predition output of test images"
+
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -100,6 +101,7 @@ This final augmented & processed training data set is then used to train the LeN
 I began by implementing the same architecture from the LeNet Lab, with no changes since because I converted the data set to grayscale. This model worked quite well obtaining 94% validation accuracy), but I also implemented the Sermanet/LeCun model from their traffic sign classifier paper and saw an immediate improvement. Although the paper doesn't go into detail describing exactly how the model is implemented (particularly the depth of the layers) I was able to make it work. 
 
 My final model consisted of the following layers:
+![alt text][image4]
 
 |Layer	| Description |
 |:---------------------:|:---------------------------------------------:|
@@ -143,17 +145,22 @@ My first pass, after watching the video walk through in this assignment was 95% 
 
 
 My final model results were:
-* training set accuracy of 99%
-* validation set accuracy of 98%
-* test set accuracy of 99%
+* training set accuracy of 98%
+* validation set accuracy of 99%
+* test set accuracy of 98%
 
 If an alliterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
-	My first Architecture was LeNet used in to lesson, I then modified it based on ermanet/LeCun model.
+My first Architecture was LeNet used in to lesson, I then modified it based on ermanet/LeCun model.
 * What were some problems with the initial architecture?
-	It only achieved a 94% accuracy after training. 
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+It only achieved a 94% accuracy after training. So I went back to the LeNet model and lectures to see where I could improve the model. I found that the model required some changes in teh layers and a few less convalutional layrs. I added anouther dropout layer becuase the model appears to be overfitting. 
+* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. 
+One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 * Which parameters were tuned? How were they adjusted and why?
+Learning rate was truned, it was trail and error, so time consuming! Litterally running this model takes 25 minutes each pass. I strated wreiting down what worked and what didn't to keep track of the effects of changing the learing rate. I also noticed that running 50 epochs takes so long, so I started playing with how many where required to achive high accuary. I realized a graph of accuracy vs epohs would be so valubale to save me time. I also used this figure to make sure the model was going past 93% accuary to meet the class requirmnets. I then pushed it more to get closer to 100% finaly achiving 98% after playing with some fetures to not overfit teh model to the training images. 
+
+![alt text][image7] 
+
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
 If a well known architecture was chosen:
@@ -168,8 +175,7 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web, I ended up testing on 14 different signs, you can see the images of all the signs and the perditions next. 
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8] 
+![alt text][image5] 
 
 These images are taken from Google search and then processed to be 32x32x3 dimensions, then we run them through the classifier model and see what the probability is they are identified correctly. 
 
@@ -185,22 +191,16 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 176th cell of the Ipython notebook.Well teh code that dispalsy these images anyway. The idea being you can see how confident the network is when evaluating an image based on how many lines are graphed. Most images only have a single line a the number that the sign is predicted to represent, and more if it has some leavel of uncertanty. The kids playing sign confused the netwrok, and I think thats becuase it is not sure if it's a walk sign or a constrution sign. 
 
-
-
-| Probability         |     Prediction        |
-|:---------------------:|:---------------------------------------------:|
-| 1.0        | Stop sign   |
-| 1.0     | U-turn |
-| 1.5		| Yield|
-| 1.4      | Bumpy Road |
-| 1.1    | Slippery Road      |
-
+![alt text][image10]
 
 the precision for a class is the number of true positives (i.e. the number of items correctly labeled as belonging to the positive class) divided by the total number of elements labeled as belonging to the positive class (i.e. the sum of true positives and false positives, which are items incorrectly labeled as belonging to the class). Recall in this context is defined as the number of true positives divided by the total number of elements that actually belong to the positive class (i.e. the sum of true positives and false negatives, which are items which were not labeled as belonging to the positive class but should have been).
 
 
-
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications? 
+
+I I tried to do this, i pulled the layers from the LeNet2 CNN network and tried to run just layer1 and layer 2 from te netwrok on a single image and okept getting an error. As it's 11:33pm and I have been working on this project now for 6 hours, I' calling this done. 
+
+I undertstand whats suposse to happne, as this section is suppost to show how the network distorts the image and pulls features from the grayscaled images as it moves through the network. When I have more time and can stop getting code errors tensorflow issues with y linux machine and such I will try and figureout why the image and layer sizes arenot macching up in shape correctly. 
