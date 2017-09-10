@@ -102,8 +102,9 @@ This final augmented & processed training data set is then used to train the LeN
 
 I began by implementing the same architecture from the LeNet Lab, with no changes since because I converted the data set to grayscale. This model worked quite well obtaining 94% validation accuracy), but I also implemented the Sermanet/LeCun model from their traffic sign classifier paper and saw an immediate improvement. Although the paper doesn't go into detail describing exactly how the model is implemented (particularly the depth of the layers) I was able to make it work. 
 
-My final model consisted of the following layers:
 ![alt text][image4]
+
+My final model consisted of the following layers: 
 
 |Layer	| Description |
 |:---------------------:|:---------------------------------------------:|
