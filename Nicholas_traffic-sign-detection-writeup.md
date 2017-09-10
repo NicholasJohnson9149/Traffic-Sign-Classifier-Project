@@ -4,6 +4,7 @@
 **Build a Traffic Sign Recognition Pipeline using TensorFlow**
 
 
+[//]: # (Image References)
 [image1]: ./ouput-pictures/image1.png "histogram of label frequency before before data augmentation"
 [image2]: ./ouput-pictures/image2.png "array of prossesed data images"
 [image3]: ./ouput-pictures/image3.png "array of secound set of daata uding processing"
@@ -75,6 +76,7 @@ signs data set:
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
 
 ![alt text][image1]
+
 histogram of label frequency (once again, before data augmentation)
 
 ###Design and Test a Model Architecture
